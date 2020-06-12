@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% block content %}
+
+    <!-- Main content -->
+    <div class="main-content">
+      <!-- Header -->
+      <div class="header bg-gradient-primary py-7">
+   
+        <div class="separator separator-bottom separator-skew zindex-100">
+          <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+          </svg>
+        </div>
+      </div>
+      <!-- Page content -->
+      <div class="container mt--8 pb-5">
+        <!-- Table -->
+        <div class="row justify-content-center">
+          <div class="col-lg-6 col-md-8">
+            <div class="card bg-secondary border-0">
+           
+              <div class="card-body px-lg-5 py-lg-5">
+                <div class="text-center text-muted mb-4">
+                  <p>Sign Up Now!</p>
+                </div>
+               
+                <form method="POST">
+                  <div class="form-group">
+                    <div class="input-group input-group-merge input-group-alternative mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                      </div>
+                      {% csrf_token %}
+                      {% render_field register_form.username class="form-control" placeholder="Name" %}
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group input-group-merge input-group-alternative mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                      </div>
+                    
+                      {% render_field register_form.email class="form-control" placeholder="Email" %}
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group input-group-merge input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                      </div>
+                      
+                      {% render_field register_form.password1 class="form-control" placeholder="Password" %}
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group input-group-merge input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                      </div>
+                      
+                      {% render_field register_form.password2 class="form-control" placeholder="Confirm Password" %}
+                    </div>
+                  </div>
+                  <!--<div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>-->
+                  <div class="row my-4">
+                    <div class="col-12">
+                      <div class="custom-control custom-control-alternative custom-checkbox">
+                        <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                        <label class="custom-control-label" for="customCheckRegister">
+                          <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <input type="submit" class="btn btn-primary mt-4" name="Sign_Up_Btn">
+                    <a type="button" href="#!" class="btn btn-neutral"  data-toggle="modal" data-target="#exampleModal" class = "btn btn-neutral">Create profile</a>
+                  </div>
+                </form>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

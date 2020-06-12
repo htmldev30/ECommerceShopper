@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% block title %} Create Profile - FN Δ {% endblock %}
+{% block content %}
+<!-- Modal -->
+
+{% if user.userprofile %}
+
+{% else %}
+<div class="modal fade in" id="userProModal" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Create User Profile</h5>
+      
+        </div>
+        <form method="POST" enctype="multipart/form-data"> 
+        <div class="modal-body">
+            <div class="p-4 bg-secondary">
+                {% csrf_token %}
+               {% render_field user_profile_form.user_bio class="form-control form-control-alternative" placeholder="Bio" %}
+                <br>
+               
+                Profile Pic: {% render_field user_profile_form.user_pic class="custom-file-input" %}
+                Background Pic: {% render_field user_profile_form.user_background class="custom-file-input" %}
+              
+              </div>
+        </div>
+        
+        <div class="modal-footer">
+  
+          <button type="submit" name = "User_Profile_Btn" class="btn btn-primary">Create Profile</button>
+      
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+{% endif %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+      $(document).ready(function(){
+        $("#userProModal").modal('show');
+    });
+</script>
+
+
+{% endblock %}
+
+

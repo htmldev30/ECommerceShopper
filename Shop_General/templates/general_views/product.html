@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %} Product - SpotLi {% endblock %}
+{% block content %}
+   <!-- Header -->
+    <!-- Header -->
+    <div class="header pb-2">
+     
+        <div class="container-fluid">
+     
+        </div>
+      </div>
+      <!-- Page content -->
+      <div class="container">
+          <div class="col-md-14">
+         <!-- Page Content -->
+  <div class="container">
+  
+      <!-- Portfolio Item Heading -->
+      <h1 class="my-4">{{spec_product.product_name}}
+        <small> // {{spec_product.product_category}}</small>
+      </h1>
+    
+      <!-- Portfolio Item Row -->
+      <div class="row">
+    
+        <div class="col-md-8">
+          <img class="img-fluid" src="{{ spec_product.product_image.url }}" alt="">
+        </div>
+    
+        <div class="col-md-4">
+          <h3 class="my-3">{{spec_product.product_name}} - <small class="h4">${{ spec_product.product_price }}</small></h3>
+          <p>{{ spec_product.product_description }}</p>
+          <a href="{% url 'Cart:add_to_cart' spec_product.id %}">Add To Cart</a>
+          <h3 class="my-3">Project Details</h3>
+          <ul>
+            <li>Cotton</li>
+            <li>Simple</li>
+            <li>Meme</li>
+            <li>Bright</li>
+          </ul>
+          <h3 class="my-3">Rating </h3>
+          &#127756; &#127756; &#127756; &#127756; &#127756;
+        </div>
+    
+      </div>
+      <!-- /.row -->
+    
+      <!-- Related Projects Row -->
+      <br>
+      <br>
+      <br>
+      <h3 class="my-4">Related Appearel</h3>
+    
+      <div class="row">
+    {% for related_product in related_products %}
+    {% if related_product.product_name == spec_product.product_name %}
+
+
+        
+    {% else %}
+    
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+                <img class="img-fluid" src="{{ related_product.product_image.url }}" alt="">
+              </a>
+        </div>
+        {% endif %}
+      {% endfor %}
+    
+        
+  
+    
+      </div>
+      <!-- /.row -->
+    
+    </div>
+    <!-- /.container -->
+            </div>
+    
+      </div>
+      <!-- /.container -->
+{% endblock %}
