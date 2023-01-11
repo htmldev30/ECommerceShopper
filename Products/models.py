@@ -1,3 +1,5 @@
+# Pre save post reciever part of code adapted from Vitor Freitas Article Tutorial
+# https://simpleisbetterthancomplex.com/tutorial/2016/07/28/how-to-create-django-signals.html
 from django.db import models
 from django.db.models.signals import pre_save
 from django.utils.text import slugify

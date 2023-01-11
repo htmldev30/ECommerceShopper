@@ -1,3 +1,5 @@
+# Code adapted from StackOverflow user, Eric Herot's solution to a question.
+#  https://stackoverflow.com/questions/11040177/datetime-round-trim-number-of-digits-in-microseconds
 import random
 import string
 from datetime import date
